@@ -118,7 +118,7 @@ CREATE TABLE AdminUser (
 CREATE TABLE UserActivity (
     ActivityID INT PRIMARY KEY,
     UserID INT,
-    Timestamp TIMESTAMP,
+    LogTime DATETIME,
     Details TEXT,
     ActivityType VARCHAR(50),
     FOREIGN KEY (UserID) REFERENCES "User"(UserID)
@@ -126,9 +126,9 @@ CREATE TABLE UserActivity (
 
 CREATE TABLE Cart (
     CartID INT PRIMARY KEY,
-    UserID INT,
-    CreatedAt TIMESTAMP,
-    UpdatedAt TIMESTAMP,
+    UserID INT UNIQUE,
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME,
     FOREIGN KEY (UserID) REFERENCES "User"(UserID)
 );
 
@@ -136,7 +136,7 @@ CREATE TABLE CartItem (
     CartID INT,
     ProductID INT,
     Quantity INT,
-    AddedAt TIMESTAMP,
+    AddedAt DATETIME,
     PRIMARY KEY (CartID, ProductID),
     FOREIGN KEY (CartID) REFERENCES Cart(CartID),
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
@@ -145,7 +145,7 @@ CREATE TABLE CartItem (
 CREATE TABLE Wishlist (
     WishlistID INT PRIMARY KEY,
     UserID INT,
-    CreatedAt TIMESTAMP,
+    CreatedAt DATETIME,
     FOREIGN KEY (UserID) REFERENCES "User"(UserID)
 );
 
@@ -153,7 +153,7 @@ CREATE TABLE WishlistItem (
     WishlistItemID INT PRIMARY KEY,
     WishlistID INT,
     ProductID INT,
-    AddedAt TIMESTAMP,
+    AddedAt DATETIME,
     FOREIGN KEY (WishlistID) REFERENCES Wishlist(WishlistID),
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
@@ -172,8 +172,8 @@ CREATE TABLE Review (
 CREATE TABLE Outfit (
     OutfitID INT PRIMARY KEY,
     UserID INT,
-    CreatedAt TIMESTAMP,
-    UpdatedAt TIMESTAMP,
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME,
     Description TEXT,
     Name VARCHAR(255),
     FOREIGN KEY (UserID) REFERENCES "User"(UserID)
