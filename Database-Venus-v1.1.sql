@@ -16,7 +16,7 @@ CREATE TABLE Product (
     Description TEXT,
     Price DECIMAL(10, 2),
     Material VARCHAR(100),
-    StockQuality INT,
+    StockQuantity INT,
     DateAdded DATE,
     LastUpdated DATE,
     AverageRating DECIMAL(3, 2),
