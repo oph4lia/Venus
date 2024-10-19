@@ -30,14 +30,23 @@ INSERT INTO ClothingItem (ProductID, ClothType, Type) VALUES
 (2, 'Pants', 'clothing'),
 (3, 'Jacket', 'clothing'),
 (4, 'Hoodie', 'clothing'),
+(5, 'Sweater', 'clothing'),
+(6, 'Jeans', 'clothing'),
 (7, 'Shoes', 'clothing'),
-(9, 'Suit', 'clothing');
+(8, 'Sneakers', 'clothing'),
+(9, 'Suit', 'clothing')
+(10, 'Slacks', 'clothing');
 
 -- INSERT Data into AccessoryItem Table
 INSERT INTO AccessoryItem (ProductID, AccessoryType, Type) VALUES
+(1, 'Necklace', 'accessory'),
+(2, 'Bracelet', 'accessory'),
+(3, 'Beret', 'accessory'),
+(4, 'Watch', 'accessory'),
 (5, 'Backpack', 'accessory'),
 (6, 'Hat', 'accessory'),
 (8, 'Scarf', 'accessory'),
+(9, 'Helmet', 'accessory'),
 (10, 'Sunglasses', 'accessory');
 
 -- INSERT Data into SustainabilityMetric Table
