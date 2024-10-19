@@ -126,7 +126,7 @@ CREATE TABLE UserActivity (
 
 CREATE TABLE Cart (
     CartID INT PRIMARY KEY,
-    UserID INT UNIQUE,
+    UserID INT,
     CreatedAt DATETIME,
     UpdatedAt DATETIME,
     FOREIGN KEY (UserID) REFERENCES "User"(UserID)
