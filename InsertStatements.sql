@@ -112,7 +112,7 @@ INSERT INTO AdminUser (UserID) VALUES
 (2), (5), (8);
 
 -- INSERT Data into UserActivity Table
-INSERT INTO UserActivity (ActivityID, UserID, Timestamp, Details, ActivityType) VALUES
+INSERT INTO UserActivity (ActivityID, UserID, LogTime, Details, ActivityType) VALUES
 (1, 1, '2024-09-10 10:00:00', 'Logged in', 'login'),
 (2, 1, '2024-09-10 10:30:00', 'Browsed products', 'browse'),
 (3, 2, '2024-10-01 14:00:00', 'Updated system settings', 'admin action'),
