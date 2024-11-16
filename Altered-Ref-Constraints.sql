@@ -9,6 +9,11 @@ ADD CONSTRAINT Product_BrandID_fkey
     FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
     ON DELETE SET NULL;  -- Changed from SET NULL to NO ACTION
 
+ALTER TABLE PRODUCT
+ADD CONSTRAINT Product_Category_fkey
+    FOREIGN KEY (RefCategory) REFERENCES Category(Name)
+    ON DELETE SET NULL;
+
 -- ProductColors table
 ALTER TABLE ProductColors
 DROP CONSTRAINT IF EXISTS ProductColors_ProductID_fkey;

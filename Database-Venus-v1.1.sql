@@ -10,7 +10,7 @@ CREATE TABLE Brand (
 );
 
 CREATE TABLE Product (
-    ProductID INT PRIMARY KEY,
+    ProductID INT,
     BrandID INT,
     Name VARCHAR(255) NOT NULL,
     Description TEXT,
@@ -30,6 +30,7 @@ CREATE TABLE Product (
     SleeveLength DECIMAL(5, 2),
     TotalLength DECIMAL(5, 2),
     Type VARCHAR(20),
+    PRIMARY KEY(ProductID, BrandID),
     FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
 );
 

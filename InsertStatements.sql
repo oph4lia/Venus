@@ -12,42 +12,44 @@ INSERT INTO Brand (BrandID, Name, Description, FoundedYear, Website, Logo, Avera
 (10, 'EcoFuture', 'Future-forward eco fashion', 2021, 'www.ecofuture.com', 'logo10.png', 7.7);
 
 -- INSERT Data into Product Table
-INSERT INTO Product (ProductID, BrandID, Name, Description, Price, Material, StockQuality, DateAdded, LastUpdated, AverageRating, Weight, RefCategory, AvailableSizes, Dimensions, WaistWidth, ChestWidth, ShoulderWidth, SleeveLength, TotalLength, Type) VALUES
-(1, 1, 'Eco T-Shirt', '100% organic cotton', 25.99, 'Organic Cotton', 100, '2024-01-01', '2024-02-01', 4.5, 0.5, 'Clothing', 'S,M,L', '10x10x1', 30.0, 50.0, 40.0, 65.0, 70.0, 'clothing'),
-(2, 2, 'Recycled Jeans', 'Made from recycled denim', 49.99, 'Recycled Denim', 50, '2024-03-01', '2024-03-15', 4.7, 1.0, 'Clothing', 'S,M,L', '30x40x2', 32.0, 52.0, 42.0, 68.0, 72.0, 'clothing'),
-(3, 3, 'Sustainable Jacket', 'Water-resistant and eco-friendly', 89.99, 'Recycled Polyester', 20, '2024-04-01', '2024-04-10', 4.8, 1.5, 'Clothing', 'M,L', '15x10x5', 32.0, 54.0, 44.0, 70.0, 75.0, 'clothing'),
-(4, 4, 'Recycled Hoodie', 'Hoodie made from recycled fibers', 60.00, 'Recycled Cotton', 40, '2024-05-01', '2024-05-05', 4.4, 1.2, 'Clothing', 'S,M,L', '20x30x2', 28.0, 48.0, 42.0, 62.0, 72.0, 'clothing'),
-(5, 5, 'Eco Backpack', 'Backpack made from sustainable materials', 70.00, 'Recycled Nylon', 50, '2024-06-01', '2024-06-10', 4.6, 1.3, 'Accessory', '', '30x40x15', NULL, NULL, NULL, NULL, NULL, 'accessory'),
-(6, 6, 'Zero Waste Hat', '100% zero-waste manufacturing', 20.00, 'Recycled Wool', 60, '2024-06-15', '2024-06-20', 4.5, 0.3, 'Accessory', '', '5x5x2', NULL, NULL, NULL, NULL, NULL, 'accessory'),
-(7, 7, 'Eco Running Shoes', 'Eco-friendly running shoes', 90.00, 'Organic Rubber', 30, '2024-07-01', '2024-07-05', 4.7, 0.8, 'Clothing', 'S,M,L', '20x10x5', NULL, NULL, NULL, NULL, NULL, 'clothing'),
-(8, 8, 'PureNature Scarf', 'Scarf made from natural fibers', 30.00, 'Organic Wool', 100, '2024-08-01', '2024-08-05', 4.3, 0.4, 'Accessory', '', '10x20x1', NULL, NULL, NULL, NULL, NULL, 'accessory'),
-(9, 9, 'Sustainable Suit', 'Luxury suit made from eco-friendly materials', 500.00, 'Recycled Wool', 10, '2024-09-01', '2024-09-10', 4.9, 2.5, 'Clothing', 'M,L', '50x50x10', 40.0, 60.0, 50.0, 75.0, 80.0, 'clothing'),
-(10, 10, 'EcoFuture Sunglasses', 'Sunglasses made from sustainable materials', 150.00, 'Recycled Plastic', 20, '2024-09-15', '2024-09-20', 4.8, 0.2, 'Accessory', '', '5x5x2', NULL, NULL, NULL, NULL, NULL, 'accessory');
+INSERT INTO Product (ProductID, BrandID, Name, Description, Price, Material, StockQuantity, DateAdded, LastUpdated, AverageRating, Weight, RefCategory, AvailableSizes, Dimensions, WaistWidth, ChestWidth, ShoulderWidth, SleeveLength, TotalLength, Type) VALUES
+(1345, 1, 'Eco T-Shirt', '100% organic cotton', 25.99, 'Organic Cotton', 100, '2024-01-01', '2024-02-01', 4.5, 0.5, 'Mens Clothing', 'S,M,L', '10x10x1', 30.0, 50.0, 40.0, 65.0, 70.0, 'clothing'),
+(2672, 2, 'Recycled Jeans', 'Made from recycled denim', 49.99, 'Recycled Denim', 50, '2024-03-01', '2024-03-15', 4.7, 1.0, 'Clothing', 'S,M,L', '30x40x2', 32.0, 52.0, 42.0, 68.0, 72.0, 'clothing'),
+(3457, 3, 'Sustainable Jacket', 'Water-resistant and eco-friendly', 89.99, 'Recycled Polyester', 20, '2024-04-01', '2024-04-10', 4.8, 1.5, 'Clothing', 'M,L', '15x10x5', 32.0, 54.0, 44.0, 70.0, 75.0, 'clothing'),
+(4130, 4, 'Recycled Hoodie', 'Hoodie made from recycled fibers', 60.00, 'Recycled Cotton', 40, '2024-05-01', '2024-05-05', 4.4, 1.2, 'Womens Clothing', 'S,M,L', '20x30x2', 28.0, 48.0, 42.0, 62.0, 72.0, 'clothing'),
+(5998, 5, 'Eco Backpack', 'Backpack made from sustainable materials', 70.00, 'Recycled Nylon', 50, '2024-06-01', '2024-06-10', 4.6, 1.3, 'Bags', '', '30x40x15', NULL, NULL, NULL, NULL, NULL, 'accessory'),
+(6218, 6, 'Zero Waste Hat', '100% zero-waste manufacturing', 20.00, 'Recycled Wool', 60, '2024-06-15', '2024-06-20', 4.5, 0.3, 'Hats', '', '5x5x2', NULL, NULL, NULL, NULL, NULL, 'accessory'),
+(7193, 7, 'Eco Running Shoes', 'Eco-friendly running shoes', 90.00, 'Organic Rubber', 30, '2024-07-01', '2024-07-05', 4.7, 0.8, 'Footwear', 'S,M,L', '20x10x5', NULL, NULL, NULL, NULL, NULL, 'clothing'),
+(8116, 8, 'PureNature Scarf', 'Scarf made from natural fibers', 30.00, 'Organic Wool', 100, '2024-08-01', '2024-08-05', 4.3, 0.4, 'Accessory', '', '10x20x1', NULL, NULL, NULL, NULL, NULL, 'accessory'),
+(9053, 9, 'Sustainable Suit', 'Luxury suit made from eco-friendly materials', 500.00, 'Recycled Wool', 10, '2024-09-01', '2024-09-10', 4.9, 2.5, 'Clothing', 'M,L', '50x50x10', 40.0, 60.0, 50.0, 75.0, 80.0, 'clothing'),
+(1067, 10, 'EcoFuture Sunglasses', 'Sunglasses made from sustainable materials', 150.00, 'Recycled Plastic', 20, '2024-09-15', '2024-09-20', 4.8, 0.2, 'Sunglasses', '', '5x5x2', NULL, NULL, NULL, NULL, NULL, 'accessory'),
+(8756, 4, 'Recycled Pants','Recyled pair of levis jeans', 70.00, 'Denim', 10, '2024-05-10', '2024-05-28', 4, 1.0, 'Mens Clothing', 'S,M,L', '30x40x2', 34, NULL, NULL, NULL, NULL, 'clothing'),
+(2459, 7, 'Eco Hiking boots', 'Eco-friendly hicking boots', 120.00, 'Organic Rubber', 15, '2024-07-6', '2024-11-3', 4.0, 2.1, 'Footwear', '7,8,9,10,11', NULL, NULL, NULL, NULL, NULL, NULL, 'accessroy');
 
 -- INSERT Data into ClothingItem Table
 INSERT INTO ClothingItem (ProductID, ClothType, Type) VALUES
-(1, 'Shirt', 'clothing'),
-(2, 'Pants', 'clothing'),
-(3, 'Jacket', 'clothing'),
-(4, 'Hoodie', 'clothing'),
-(5, 'Sweater', 'clothing'),
-(6, 'Jeans', 'clothing'),
-(7, 'Shoes', 'clothing'),
-(8, 'Sneakers', 'clothing'),
-(9, 'Suit', 'clothing')
-(10, 'Slacks', 'clothing');
+(1345, 'Shirt', 'clothing'),
+(2672, 'Pants', 'clothing'),
+(3457, 'Jacket', 'clothing'),
+(4130, 'Hoodie', 'clothing'),
+(5998, 'Sweater', 'clothing'),
+(6218, 'Jeans', 'clothing'),
+(7193, 'Shoes', 'clothing'),
+(8116, 'Sneakers', 'clothing'),
+(9053, 'Suit', 'clothing'),
+(1067, 'Slacks', 'clothing');
 
 -- INSERT Data into AccessoryItem Table
 INSERT INTO AccessoryItem (ProductID, AccessoryType, Type) VALUES
-(1, 'Necklace', 'accessory'),
-(2, 'Bracelet', 'accessory'),
-(3, 'Beret', 'accessory'),
-(4, 'Watch', 'accessory'),
-(5, 'Backpack', 'accessory'),
-(6, 'Hat', 'accessory'),
-(8, 'Scarf', 'accessory'),
-(9, 'Helmet', 'accessory'),
-(10, 'Sunglasses', 'accessory');
+(1345, 'Necklace', 'accessory'),
+(2672, 'Bracelet', 'accessory'),
+(3457, 'Beret', 'accessory'),
+(4130, 'Watch', 'accessory'),
+(5998, 'Backpack', 'accessory'),
+(6218, 'Hat', 'accessory'),
+(8116, 'Scarf', 'accessory'),
+(9053, 'Helmet', 'accessory'),
+(1067, 'Sunglasses', 'accessory');
 
 -- INSERT Data into SustainabilityMetric Table
 INSERT INTO SustainabilityMetric (MetricID, MetricType, Value, ProductID, BrandID, BrandUnit, ProductUnit, MeasurementData) VALUES
@@ -66,8 +68,8 @@ INSERT INTO SustainabilityMetric (MetricID, MetricType, Value, ProductID, BrandI
 INSERT INTO Category (CategoryID, Name, Description, ParentCategoryID) VALUES
 (1, 'Clothing', 'All clothing items', NULL),
 (2, 'Accessories', 'All accessories', NULL),
-(3, 'Men\'s Clothing', 'Clothing for men', 1),
-(4, 'Women\'s Clothing', 'Clothing for women', 1),
+(3, 'Mens Clothing', 'Clothing for men', 1),
+(4, 'Womens Clothing', 'Clothing for women', 1),
 (5, 'Eco-Friendly Products', 'All eco-friendly products', NULL),
 (6, 'Footwear', 'All types of shoes', 1),
 (7, 'Outerwear', 'Jackets and coats', 1),
@@ -77,19 +79,19 @@ INSERT INTO Category (CategoryID, Name, Description, ParentCategoryID) VALUES
 
 -- INSERT Data into Inventory Table
 INSERT INTO Inventory (InventoryID, ProductID, Quantity, LastUpdated) VALUES
-(1, 1, 100, '2024-07-01'),
-(2, 2, 50, '2024-07-15'),
-(3, 3, 20, '2024-08-01'),
-(4, 4, 40, '2024-08-15'),
-(5, 5, 50, '2024-09-01'),
-(6, 6, 60, '2024-09-10'),
-(7, 7, 30, '2024-09-20'),
-(8, 8, 100, '2024-09-25'),
-(9, 9, 10, '2024-10-01'),
-(10, 10, 20, '2024-10-10');
+(1993721, 1345, 100, '2024-07-01'),
+(2628436, 2672, 50, '2024-07-15'),
+(3364828, 3457, 20, '2024-08-01'),
+(4097352, 4130, 40, '2024-08-15'),
+(5159465, 5998, 50, '2024-09-01'),
+(6475038, 6218, 60, '2024-09-10'),
+(7130485, 7193, 30, '2024-09-20'),
+(8095128, 8116, 100, '2024-09-25'),
+(9739462, 9053, 10, '2024-10-01'),
+(1023447, 1067, 20, '2024-10-10');
 
 -- INSERT Data into User Table
-INSERT INTO User (UserID, Email, TotalSpent, Password, RegistrationDate, DOB, PhoneNumber, LastName, FirstName, UserType, LastLoginDate) VALUES
+INSERT INTO "User" (UserID, Email, TotalSpent, Password, RegistrationDate, DOB, PhoneNumber, LastName, FirstName, UserType, LastLoginDate) VALUES
 (1, 'user1@example.com', 150.50, 'password123', '2023-01-01', '1990-05-15', '1234567890', 'Doe', 'John', 'regular', '2024-09-01'),
 (2, 'admin1@example.com', 500.00, 'adminpass', '2023-06-10', '1985-08-25', '0987654321', 'Smith', 'Jane', 'admin', '2024-10-10'),
 (3, 'user2@example.com', 200.00, 'password456', '2023-03-05', '1992-09-10', '5555555555', 'Brown', 'Lisa', 'regular', '2024-09-15'),
@@ -137,16 +139,16 @@ INSERT INTO Cart (CartID, UserID, CreatedAt, UpdatedAt) VALUES
 
 -- INSERT Data into CartItem Table
 INSERT INTO CartItem (CartID, ProductID, Quantity, AddedAt) VALUES
-(1, 1, 2, '2024-08-01 12:10:00'),
-(1, 2, 1, '2024-08-01 12:15:00'),
-(2, 3, 1, '2024-09-01 14:10:00'),
-(2, 4, 2, '2024-09-01 14:20:00'),
-(3, 5, 1, '2024-09-18 16:10:00'),
-(3, 6, 3, '2024-09-18 16:20:00'),
-(4, 7, 1, '2024-10-01 09:10:00'),
-(5, 8, 2, '2024-10-05 10:10:00'),
-(6, 9, 1, '2024-10-07 14:10:00'),
-(7, 10, 2, '2024-10-03 08:10:00');
+(1, 1345, 2, '2024-08-01 12:10:00'),
+(1, 2672, 1, '2024-08-01 12:15:00'),
+(2, 3457, 1, '2024-09-01 14:10:00'),
+(2, 4130, 2, '2024-09-01 14:20:00'),
+(3, 5998, 1, '2024-09-18 16:10:00'),
+(3, 6218, 3, '2024-09-18 16:20:00'),
+(4, 7193, 1, '2024-10-01 09:10:00'),
+(5, 8116, 2, '2024-10-05 10:10:00'),
+(6, 9053, 1, '2024-10-07 14:10:00'),
+(7, 1067, 2, '2024-10-03 08:10:00');
 
 -- INSERT Data into Wishlist Table
 INSERT INTO Wishlist (WishlistID, UserID, CreatedAt) VALUES
@@ -163,29 +165,29 @@ INSERT INTO Wishlist (WishlistID, UserID, CreatedAt) VALUES
 
 -- INSERT Data into WishlistItem Table
 INSERT INTO WishlistItem (WishlistItemID, WishlistID, ProductID, AddedAt) VALUES
-(1, 1, 1, '2024-06-15 15:05:00'),
-(2, 2, 2, '2024-07-01 12:05:00'),
-(3, 3, 3, '2024-07-15 10:05:00'),
-(4, 4, 4, '2024-08-05 09:05:00'),
-(5, 5, 5, '2024-08-15 14:05:00'),
-(6, 6, 6, '2024-09-01 16:05:00'),
-(7, 7, 7, '2024-09-10 13:05:00'),
-(8, 8, 8, '2024-09-25 11:05:00'),
-(9, 9, 9, '2024-10-01 08:05:00'),
-(10, 10, 10, '2024-10-05 14:05:00');
+(1, 1, 1345, '2024-06-15 15:05:00'),
+(2, 2, 2672, '2024-07-01 12:05:00'),
+(3, 3, 3457, '2024-07-15 10:05:00'),
+(4, 4, 4130, '2024-08-05 09:05:00'),
+(5, 5, 5998, '2024-08-15 14:05:00'),
+(6, 6, 6218, '2024-09-01 16:05:00'),
+(7, 7, 7193, '2024-09-10 13:05:00'),
+(8, 8, 8116, '2024-09-25 11:05:00'),
+(9, 9, 9053, '2024-10-01 08:05:00'),
+(10, 10, 1067, '2024-10-05 14:05:00');
 
 -- INSERT Data into Review Table
 INSERT INTO Review (ReviewID, UserID, ProductID, ReviewDate, Rating, Comment) VALUES
-(1, 1, 1, '2024-07-20', 4.5, 'Great product!'),
-(2, 2, 2, '2024-07-22', 4.7, 'Comfortable and eco-friendly'),
-(3, 3, 3, '2024-07-25', 4.8, 'Love the sustainable material'),
-(4, 4, 4, '2024-08-01', 4.4, 'Very stylish'),
-(5, 5, 5, '2024-08-05', 4.6, 'Highly recommend'),
-(6, 6, 6, '2024-08-10', 4.5, 'Amazing product'),
-(7, 7, 7, '2024-08-15', 4.7, 'Perfect for running'),
-(8, 8, 8, '2024-08-20', 4.3, 'Warm and cozy'),
-(9, 9, 9, '2024-08-25', 4.9, 'Luxury with sustainability'),
-(10, 10, 10, '2024-09-01', 4.8, 'Great sunglasses!');
+(1, 1, 1345, '2024-07-20', 4.5, 'Great product!'),
+(2, 2, 2672, '2024-07-22', 4.7, 'Comfortable and eco-friendly'),
+(3, 3, 3457, '2024-07-25', 4.8, 'Love the sustainable material'),
+(4, 4, 4130, '2024-08-01', 4.4, 'Very stylish'),
+(5, 5, 5998, '2024-08-05', 4.6, 'Highly recommend'),
+(6, 6, 6218, '2024-08-10', 4.5, 'Amazing product'),
+(7, 7, 7193, '2024-08-15', 4.7, 'Perfect for running'),
+(8, 8, 8116, '2024-08-20', 4.3, 'Warm and cozy'),
+(9, 9, 9053, '2024-08-25', 4.9, 'Luxury with sustainability'),
+(10, 10, 1067, '2024-09-01', 4.8, 'Great sunglasses!');
 
 -- INSERT Data into Outfit Table
 INSERT INTO Outfit (OutfitID, UserID, CreatedAt, UpdatedAt, Description, Name) VALUES
@@ -202,81 +204,81 @@ INSERT INTO Outfit (OutfitID, UserID, CreatedAt, UpdatedAt, Description, Name) V
 
 -- INSERT Data into OutfitItem Table
 INSERT INTO OutfitItem (OutfitID, ProductID) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
+(1, 1345),
+(2, 2672),
+(3, 3457),
+(4, 4130),
+(5, 5998),
+(6, 6218),
+(7, 7193),
+(8, 8116),
+(9, 9053),
+(10, 1067);
 
 -- INSERT Data into Order Table
-INSERT INTO `Order` (OrderID, UserID, OrderDate, TotalAmount, BillingAddress, ShippingAddress, Status) VALUES
-(1, 1, '2024-08-20', 100.00, '123 Street, City', '123 Street, City', 'shipped'),
-(2, 3, '2024-08-25', 120.00, '456 Avenue, Town', '456 Avenue, Town', 'shipped'),
-(3, 4, '2024-09-01', 80.00, '789 Boulevard, City', '789 Boulevard, City', 'processing'),
-(4, 6, '2024-09-10', 150.00, '1010 Circle, Village', '1010 Circle, Village', 'delivered'),
-(5, 7, '2024-09-15', 200.00, '1212 Road, Hamlet', '1212 Road, Hamlet', 'shipped'),
-(6, 9, '2024-09-20', 175.00, '1313 Drive, City', '1313 Drive, City', 'processing'),
-(7, 10, '2024-09-25', 220.00, '1414 Path, Town', '1414 Path, Town', 'shipped'),
-(8, 8, '2024-09-30', 300.00, '1515 Lane, City', '1515 Lane, City', 'delivered'),
-(9, 2, '2024-10-01', 180.00, '1616 Street, Village', '1616 Street, Village', 'processing'),
-(10, 5, '2024-10-05', 250.00, '1717 Avenue, City', '1717 Avenue, City', 'shipped');
+INSERT INTO "Order" (OrderID, UserID, OrderDate, TotalAmount, BillingAddress, ShippingAddress, Status) VALUES
+(17892, 1, '2024-08-20', 100.00, '123 Street, City', '123 Street, City', 'shipped'),
+(21539, 3, '2024-08-25', 120.00, '456 Avenue, Town', '456 Avenue, Town', 'shipped'),
+(38730, 4, '2024-09-01', 80.00, '789 Boulevard, City', '789 Boulevard, City', 'processing'),
+(42581, 6, '2024-09-10', 150.00, '1010 Circle, Village', '1010 Circle, Village', 'delivered'),
+(55429, 7, '2024-09-15', 200.00, '1212 Road, Hamlet', '1212 Road, Hamlet', 'shipped'),
+(62187, 9, '2024-09-20', 175.00, '1313 Drive, City', '1313 Drive, City', 'processing'),
+(76520, 10, '2024-09-25', 220.00, '1414 Path, Town', '1414 Path, Town', 'shipped'),
+(81137, 8, '2024-09-30', 300.00, '1515 Lane, City', '1515 Lane, City', 'delivered'),
+(98621, 2, '2024-10-01', 180.00, '1616 Street, Village', '1616 Street, Village', 'processing'),
+(10413, 5, '2024-10-05', 250.00, '1717 Avenue, City', '1717 Avenue, City', 'shipped');
 
 -- INSERT Data into OrderItem Table
 INSERT INTO OrderItem (OrderID, ProductID, Quantity, PriceAtPurchase) VALUES
-(1, 1, 2, 25.99),
-(1, 2, 1, 49.99),
-(2, 3, 1, 89.99),
-(2, 4, 2, 60.00),
-(3, 5, 1, 70.00),
-(3, 6, 3, 20.00),
-(4, 7, 1, 90.00),
-(5, 8, 2, 30.00),
-(6, 9, 1, 500.00),
-(7, 10, 2, 150.00);
+(17892, 1345, 2, 25.99),
+(17892, 2672, 1, 49.99),
+(21539, 3457, 1, 89.99),
+(21539, 4130, 2, 60.00),
+(38730, 5998, 1, 70.00),
+(38730, 6218, 3, 20.00),
+(42581, 7193, 1, 90.00),
+(55429, 8116, 2, 30.00),
+(62187, 9053, 1, 500.00),
+(76520, 1067, 2, 150.00);
 
 -- INSERT Data into Payment Table
 INSERT INTO Payment (PaymentID, OrderID, Address, Status, PaymentDate, TransactionID, PaymentMethod, Amount) VALUES
-(1, 1, '123 Street, City', 'completed', '2024-08-20', 'TX12345', 'credit card', 100.00),
-(2, 2, '456 Avenue, Town', 'completed', '2024-08-25', 'TX23456', 'debit card', 120.00),
-(3, 3, '789 Boulevard, City', 'processing', '2024-09-01', 'TX34567', 'paypal', 80.00),
-(4, 4, '1010 Circle, Village', 'completed', '2024-09-10', 'TX45678', 'credit card', 150.00),
-(5, 5, '1212 Road, Hamlet', 'completed', '2024-09-15', 'TX56789', 'debit card', 200.00),
-(6, 6, '1313 Drive, City', 'processing', '2024-09-20', 'TX67890', 'paypal', 175.00),
-(7, 7, '1414 Path, Town', 'completed', '2024-09-25', 'TX78901', 'credit card', 220.00),
-(8, 8, '1515 Lane, City', 'completed', '2024-09-30', 'TX89012', 'paypal', 300.00),
-(9, 9, '1616 Street, Village', 'processing', '2024-10-01', 'TX90123', 'debit card', 180.00),
-(10, 10, '1717 Avenue, City', 'completed', '2024-10-05', 'TX01234', 'credit card', 250.00);
+(1923, 17892, '123 Street, City', 'completed', '2024-08-20', 'TX12345', 'credit card', 100.00),
+(2625, 21549, '456 Avenue, Town', 'completed', '2024-08-25', 'TX23456', 'debit card', 120.00),
+(3120, 38730, '789 Boulevard, City', 'processing', '2024-09-01', 'TX34567', 'paypal', 80.00),
+(4729, 42581, '1010 Circle, Village', 'completed', '2024-09-10', 'TX45678', 'credit card', 150.00),
+(5482, 55429, '1212 Road, Hamlet', 'completed', '2024-09-15', 'TX56789', 'debit card', 200.00),
+(6018, 62187, '1313 Drive, City', 'processing', '2024-09-20', 'TX67890', 'paypal', 175.00),
+(7724, 76520, '1414 Path, Town', 'completed', '2024-09-25', 'TX78901', 'credit card', 220.00),
+(8294, 81137, '1515 Lane, City', 'completed', '2024-09-30', 'TX89012', 'paypal', 300.00),
+(9248, 98621, '1616 Street, Village', 'processing', '2024-10-01', 'TX90123', 'debit card', 180.00),
+(1034, 10413, '1717 Avenue, City', 'completed', '2024-10-05', 'TX01234', 'credit card', 250.00);
 
 -- INSERT Data into Return Table
-INSERT INTO `Return` (ReturnID, OrderID, CompletionDate, RequestDate, Status, Reason, ProductID) VALUES
-(1, 1, '2024-09-01', '2024-08-25', 'completed', 'Defective item', 1),
-(2, 2, '2024-09-10', '2024-09-05', 'completed', 'Wrong size', 2),
-(3, 3, '2024-09-20', '2024-09-15', 'processing', 'Product damaged', 3),
-(4, 4, '2024-09-25', '2024-09-20', 'completed', 'Not as described', 4),
-(5, 5, '2024-09-30', '2024-09-25', 'processing', 'Wrong color', 5),
-(6, 6, '2024-10-05', '2024-09-30', 'completed', 'Late delivery', 6),
-(7, 7, '2024-10-10', '2024-10-05', 'processing', 'Item faulty', 7),
-(8, 8, '2024-10-15', '2024-10-10', 'completed', 'Changed mind', 8),
-(9, 9, '2024-10-20', '2024-10-15', 'processing', 'Wrong order', 9),
-(10, 10, '2024-10-25', '2024-10-20', 'completed', 'Defective item', 10);
+INSERT INTO "Return" (ReturnID, OrderID, CompletionDate, RequestDate, Status, Reason, ProductID) VALUES
+(1, 17892, '2024-09-01', '2024-08-25', 'completed', 'Defective item', 1),
+(2, 21539, '2024-09-10', '2024-09-05', 'completed', 'Wrong size', 2),
+(3, 38730, '2024-09-20', '2024-09-15', 'processing', 'Product damaged', 3),
+(4, 42581, '2024-09-25', '2024-09-20', 'completed', 'Not as described', 4),
+(5, 55429, '2024-09-30', '2024-09-25', 'processing', 'Wrong color', 5),
+(6, 62187, '2024-10-05', '2024-09-30', 'completed', 'Late delivery', 6),
+(7, 76520, '2024-10-10', '2024-10-05', 'processing', 'Item faulty', 7),
+(8, 81137, '2024-10-15', '2024-10-10', 'completed', 'Changed mind', 8),
+(9, 98621, '2024-10-20', '2024-10-15', 'processing', 'Wrong order', 9),
+(10, 10413, '2024-10-25', '2024-10-20', 'completed', 'Defective item', 10);
 
 -- INSERT Data into Shipment Table
 INSERT INTO Shipment (ShipmentID, OrderID, TrackingNumber, Carrier, ShippingDate, EstimateDeliveryDate, ActualDeliveryDate) VALUES
-(1, 1, 'TRACK123', 'FedEx', '2024-08-21', '2024-08-25', '2024-08-23'),
-(2, 2, 'TRACK234', 'UPS', '2024-08-26', '2024-08-30', '2024-08-29'),
-(3, 3, 'TRACK345', 'DHL', '2024-09-02', '2024-09-06', '2024-09-05'),
-(4, 4, 'TRACK456', 'FedEx', '2024-09-11', '2024-09-15', '2024-09-14'),
-(5, 5, 'TRACK567', 'UPS', '2024-09-16', '2024-09-20', '2024-09-19'),
-(6, 6, 'TRACK678', 'DHL', '2024-09-21', '2024-09-25', '2024-09-24'),
-(7, 7, 'TRACK789', 'FedEx', '2024-09-26', '2024-09-30', '2024-09-29'),
-(8, 8, 'TRACK890', 'UPS', '2024-10-01', '2024-10-05', '2024-10-04'),
-(9, 9, 'TRACK901', 'DHL', '2024-10-06', '2024-10-10', '2024-10-09'),
-(10, 10, 'TRACK012', 'FedEx', '2024-10-11', '2024-10-15', '2024-10-14');
+(1893625, 17892, 'TRACK123', 'FedEx', '2024-08-21', '2024-08-25', '2024-08-23'),
+(2290264, 21539, 'TRACK234', 'UPS', '2024-08-26', '2024-08-30', '2024-08-29'),
+(3903572, 38730, 'TRACK345', 'DHL', '2024-09-02', '2024-09-06', '2024-09-05'),
+(4362462, 42581, 'TRACK456', 'FedEx', '2024-09-11', '2024-09-15', '2024-09-14'),
+(5283653, 55429, 'TRACK567', 'UPS', '2024-09-16', '2024-09-20', '2024-09-19'),
+(6252382, 62187, 'TRACK678', 'DHL', '2024-09-21', '2024-09-25', '2024-09-24'),
+(7019374, 76520, 'TRACK789', 'FedEx', '2024-09-26', '2024-09-30', '2024-09-29'),
+(8829337, 81137, 'TRACK890', 'UPS', '2024-10-01', '2024-10-05', '2024-10-04'),
+(9013648, 98621, 'TRACK901', 'DHL', '2024-10-06', '2024-10-10', '2024-10-09'),
+(1018374, 10413, 'TRACK012', 'FedEx', '2024-10-11', '2024-10-15', '2024-10-14');
 
 -- INSERT Data into LoyaltyProgram Table
 INSERT INTO LoyaltyProgram (LoyaltyID, UserID, PointsEarned, DateEarned) VALUES
@@ -290,3 +292,6 @@ INSERT INTO LoyaltyProgram (LoyaltyID, UserID, PointsEarned, DateEarned) VALUES
 (8, 8, 100, '2024-09-30'),
 (9, 2, 90, '2024-10-01'),
 (10, 5, 95, '2024-10-05');
+
+
+
