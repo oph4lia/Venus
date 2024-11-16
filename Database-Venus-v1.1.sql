@@ -233,14 +233,13 @@ CREATE TABLE Payment (
 CREATE TABLE "Return" (
     ReturnID INT PRIMARY KEY,
     OrderID INT,
-    CompletionDate DATE,
+    OrderItemID INT,  -- New field to reference specific OrderItem
     RequestDate DATE,
+    CompletionDate DATE,
     Status VARCHAR(50),
     Reason TEXT,
-    ProductID INT,
-	BrandID INT,
     FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
-    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
+    FOREIGN KEY (OrderID, OrderItemID) REFERENCES OrderItem(OrderID, ProductID)
 );
 
 CREATE TABLE Shipment (
