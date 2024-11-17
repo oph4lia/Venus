@@ -67,12 +67,11 @@ CREATE TABLE SustainabilityMetric (
     MetricID INT PRIMARY KEY,
     MetricType VARCHAR(100),
     Value DECIMAL(10, 2),
-    ProductID INT,
     BrandID INT,
     BrandUnit VARCHAR(50),
     ProductUnit VARCHAR(50),
     MeasurementData TEXT,
-    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
+    FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
 );
 
 CREATE TABLE Category (
@@ -211,7 +210,7 @@ CREATE TABLE OrderItem (
     OrderID INT,
     ProductID INT,
     BrandID INT,
-    OrderItem INT IDENTITY(1,1) PRIMARY KEY,
+    OrderItemID INT IDENTITY(1,1) PRIMARY KEY,
     Quantity INT,
     PriceAtPurchase DECIMAL(10, 2),
     FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
@@ -256,9 +255,7 @@ CREATE TABLE Shipment (
 CREATE TABLE LoyaltyProgram (
     LoyaltyID INT PRIMARY KEY,
     UserID INT,
-    OrderID INT,
     PointsEarned INT,
     DateEarned DATE,
     FOREIGN KEY (UserID) REFERENCES "User"(UserID),
-    FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID)
 );
