@@ -84,17 +84,17 @@ INSERT INTO Inventory (InventoryID, ProductID, BrandID, Quantity, LastUpdated) V
 (1023447, 1067, 10, 20, '2024-10-10');
 
 -- INSERT Data into User Table
-INSERT INTO "User" (UserID, Email, TotalSpent, Password, RegistrationDate, DOB, PhoneNumber, LastName, FirstName, UserType, LastLoginDate) VALUES
-(1, 'user1@example.com', 150.50, 'password123', '2023-01-01', '1990-05-15', '1234567890', 'Doe', 'John', 'regular', '2024-09-01'),
-(2, 'admin1@example.com', 500.00, 'adminpass', '2023-06-10', '1985-08-25', '0987654321', 'Smith', 'Jane', 'admin', '2024-10-10'),
-(3, 'user2@example.com', 200.00, 'password456', '2023-03-05', '1992-09-10', '5555555555', 'Brown', 'Lisa', 'regular', '2024-09-15'),
-(4, 'user3@example.com', 300.00, 'password789', '2023-07-12', '1988-11-20', '4444444444', 'Johnson', 'Tom', 'regular', '2024-09-18'),
-(5, 'admin2@example.com', 700.00, 'adminpass2', '2023-08-18', '1983-12-05', '6666666666', 'Williams', 'Mary', 'admin', '2024-10-12'),
-(6, 'user4@example.com', 100.00, 'password001', '2024-01-20', '1995-04-22', '3333333333', 'Taylor', 'Mark', 'regular', '2024-10-01'),
-(7, 'user5@example.com', 250.00, 'password002', '2024-02-15', '1991-07-14', '7777777777', 'Anderson', 'Emily', 'regular', '2024-10-05'),
-(8, 'admin3@example.com', 600.00, 'adminpass3', '2024-03-10', '1986-02-18', '8888888888', 'White', 'Jake', 'admin', '2024-10-09'),
-(9, 'user6@example.com', 175.00, 'password003', '2024-04-25', '1993-10-12', '2222222222', 'Harris', 'Olivia', 'regular', '2024-10-07'),
-(10, 'user7@example.com', 320.00, 'password004', '2024-05-18', '1989-06-30', '1111111111', 'Martinez', 'David', 'regular', '2024-10-03');
+INSERT INTO "User" (Email, TotalSpent, Password, RegistrationDate, DOB, PhoneNumber, LastName, FirstName, UserType, LastLoginDate) VALUES
+('user1@example.com', 150.50, 'password123', '2023-01-01', '1990-05-15', '1234567890', 'Doe', 'John', 'regular', '2024-09-01'),
+('admin1@example.com', 500.00, 'adminpass', '2023-06-10', '1985-08-25', '0987654321', 'Smith', 'Jane', 'admin', '2024-10-10'),
+('user2@example.com', 200.00, 'password456', '2023-03-05', '1992-09-10', '5555555555', 'Brown', 'Lisa', 'regular', '2024-09-15'),
+('user3@example.com', 300.00, 'password789', '2023-07-12', '1988-11-20', '4444444444', 'Johnson', 'Tom', 'regular', '2024-09-18'),
+('admin2@example.com', 700.00, 'adminpass2', '2023-08-18', '1983-12-05', '6666666666', 'Williams', 'Mary', 'admin', '2024-10-12'),
+('user4@example.com', 100.00, 'password001', '2024-01-20', '1995-04-22', '3333333333', 'Taylor', 'Mark', 'regular', '2024-10-01'),
+('user5@example.com', 250.00, 'password002', '2024-02-15', '1991-07-14', '7777777777', 'Anderson', 'Emily', 'regular', '2024-10-05'),
+('admin3@example.com', 600.00, 'adminpass3', '2024-03-10', '1986-02-18', '8888888888', 'White', 'Jake', 'admin', '2024-10-09'),
+('user6@example.com', 175.00, 'password003', '2024-04-25', '1993-10-12', '2222222222', 'Harris', 'Olivia', 'regular', '2024-10-07'),
+('user7@example.com', 320.00, 'password004', '2024-05-18', '1989-06-30', '1111111111', 'Martinez', 'David', 'regular', '2024-10-03');
 
 -- INSERT Data into RegularUser Table
 INSERT INTO RegularUser (UserID) VALUES
