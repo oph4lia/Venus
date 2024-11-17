@@ -45,17 +45,17 @@ INSERT INTO AccessoryItem (ProductID, BrandID, Type, Material) VALUES
 (1067, 10, 'sunglasses', 'Recycled Plastic');
 
 -- INSERT Data into SustainabilityMetric Table
-INSERT INTO SustainabilityMetric (MetricID, MetricType, Value, ProductID, BrandID, BrandUnit, ProductUnit, MeasurementData) VALUES
-(1, 'CO2 Emission', 12.5, 1345, 1, 'kg', 'g', 'Measured during production'),
-(2, 'Water Usage', 30.0, 2672, 2, 'liters', 'ml', 'Water used in material processing'),
-(3, 'Energy Consumption', 50.0, 3457, 3, 'kWh', 'Wh', 'Energy used in manufacturing'),
-(4, 'Waste Generated', 5.0, 4130, 4, 'kg', 'g', 'Waste generated during production'),
-(5, 'Recycled Content', 80.0, 5998, 5, '%', '%', 'Percentage of recycled material used'),
-(6, 'CO2 Emission', 15.0, 6218, 6, 'kg', 'g', 'Measured during production'),
-(7, 'Water Usage', 40.0, 7193, 7, 'liters', 'ml', 'Water used in manufacturing'),
-(8, 'Energy Consumption', 60.0, 8116, 8, 'kWh', 'Wh', 'Energy consumed during production'),
-(9, 'Waste Generated', 6.0, 9053, 9, 'kg', 'g', 'Waste generated during suit manufacturing'),
-(10, 'Recycled Content', 90.0, 1067, 10, '%', '%', 'Percentage of recycled material in sunglasses');
+INSERT INTO SustainabilityMetric (MetricID, MetricType, Value, BrandID, BrandUnit, ProductUnit, MeasurementData) VALUES
+(1, 'CO2 Emission', 12.5, 1, 'kg', 'g', 'Measured during production'),
+(2, 'Water Usage', 30.0, 2, 'liters', 'ml', 'Water used in material processing'),
+(3, 'Energy Consumption', 50.0, 3, 'kWh', 'Wh', 'Energy used in manufacturing'),
+(4, 'Waste Generated', 5.0, 4, 'kg', 'g', 'Waste generated during production'),
+(5, 'Recycled Content', 80.0, 5, '%', '%', 'Percentage of recycled material used'),
+(6, 'CO2 Emission', 15.0, 6, 'kg', 'g', 'Measured during production'),
+(7, 'Water Usage', 40.0, 7, 'liters', 'ml', 'Water used in manufacturing'),
+(8, 'Energy Consumption', 60.0, 8, 'kWh', 'Wh', 'Energy consumed during production'),
+(9, 'Waste Generated', 6.0, 9, 'kg', 'g', 'Waste generated during suit manufacturing'),
+(10, 'Recycled Content', 90.0, 10, '%', '%', 'Percentage of recycled material in sunglasses');
 
 -- INSERT Data into Category Table
 INSERT INTO Category (CategoryID, Name, Description, ParentCategoryID) VALUES
@@ -252,16 +252,16 @@ INSERT INTO Payment (PaymentID, OrderID, Address, Status, PaymentDate, Transacti
 
 -- INSERT Data into Return Table
 INSERT INTO "Return" (ReturnID, OrderID, OrderItemID, CompletionDate, RequestDate, Status, Reason) VALUES
-(1, 17892, 1345, '2024-09-01', '2024-08-25', 'completed', 'Defective item'),
-(2, 21539, 3457, '2024-09-10', '2024-09-05', 'completed', 'Wrong size'),
-(3, 38730, 5998, '2024-09-20', '2024-09-15', 'processing', 'Product damaged'),
-(4, 42581, 7193, '2024-09-25', '2024-09-20', 'completed', 'Not as described'),
-(5, 55429, 8116, '2024-09-30', '2024-09-25', 'processing', 'Wrong color'),
-(6, 62187, 9053, '2024-10-05', '2024-09-30', 'completed', 'Late delivery'),
-(7, 76520, 1067, '2024-10-10', '2024-10-05', 'processing', 'Item faulty'),
-(8, 81137, 8116, '2024-10-15', '2024-10-10', 'completed', 'Changed mind'),
-(9, 98621, 2672, '2024-10-20', '2024-10-15', 'processing', 'Wrong order'),
-(10, 10413, 1345, '2024-10-25', '2024-10-20', 'completed', 'Defective item');
+(1, 17892, 1, '2024-09-01', '2024-08-25', 'completed', 'Defective item'),
+(2, 21539, 3, '2024-09-10', '2024-09-05', 'completed', 'Wrong size'),
+(3, 38730, 5, '2024-09-20', '2024-09-15', 'processing', 'Product damaged'),
+(4, 42581, 7, '2024-09-25', '2024-09-20', 'completed', 'Not as described'),
+(5, 55429, 8, '2024-09-30', '2024-09-25', 'processing', 'Wrong color'),
+(6, 62187, 9, '2024-10-05', '2024-09-30', 'completed', 'Late delivery'),
+(7, 76520, 10, '2024-10-10', '2024-10-05', 'processing', 'Item faulty'),
+(8, 81137, 11, '2024-10-15', '2024-10-10', 'completed', 'Changed mind'),
+(9, 98621, 12, '2024-10-20', '2024-10-15', 'processing', 'Wrong order'),
+(10, 10413, 13, '2024-10-25', '2024-10-20', 'completed', 'Defective item');
 
 -- INSERT Data into Shipment Table
 INSERT INTO Shipment (ShipmentID, OrderID, TrackingNumber, Carrier, ShippingDate, EstimateDeliveryDate, ActualDeliveryDate) VALUES
@@ -288,5 +288,3 @@ INSERT INTO LoyaltyProgram (LoyaltyID, UserID, PointsEarned, DateEarned) VALUES
 (8, 8, 100, '2024-09-30'),
 (9, 2, 90, '2024-10-01'),
 (10, 5, 95, '2024-10-05');
-
-
