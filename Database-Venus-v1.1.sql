@@ -94,7 +94,7 @@ CREATE TABLE Inventory (
 
 CREATE TABLE "User" (
     UserID INT IDENTITY(1,1) PRIMARY KEY,
-    Email VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
     TotalSpent DECIMAL(10, 2),
     Password VARCHAR(255) NOT NULL,
     RegistrationDate DATE,
