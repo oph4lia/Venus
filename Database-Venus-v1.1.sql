@@ -22,6 +22,7 @@ CREATE TABLE Product (
     AverageRating DECIMAL(3, 2),
     Weight DECIMAL(5, 2),
     RefCategory VARCHAR(50),
+    ImageURL VARCHAR(500),
     PRIMARY KEY (ProductID, BrandID),
     FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
 );
