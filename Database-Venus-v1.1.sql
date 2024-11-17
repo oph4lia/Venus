@@ -210,10 +210,10 @@ CREATE TABLE "Order" (
 CREATE TABLE OrderItem (
     OrderID INT,
     ProductID INT,
-	BrandID INT,
+    BrandID INT,
+    OrderItem INT IDENTITY(1,1) PRIMARY KEY,
     Quantity INT,
     PriceAtPurchase DECIMAL(10, 2),
-    PRIMARY KEY (OrderID, ProductID),
     FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
     FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
@@ -232,14 +232,14 @@ CREATE TABLE Payment (
 
 CREATE TABLE "Return" (
     ReturnID INT PRIMARY KEY,
-    OrderID INT,
-    OrderItemID INT,  -- New field to reference specific OrderItem
+    OrderID INT NOT NULL,
+    OrderItemID INT NOT NULL,
     RequestDate DATE,
     CompletionDate DATE,
     Status VARCHAR(50),
     Reason TEXT,
     FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
-    FOREIGN KEY (OrderID, OrderItemID) REFERENCES OrderItem(OrderID, ProductID)
+    FOREIGN KEY (OrderItemID) REFERENCES OrderItem(OrderItemID)
 );
 
 CREATE TABLE Shipment (
