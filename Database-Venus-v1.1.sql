@@ -22,6 +22,25 @@ CREATE TABLE Product (
     AverageRating DECIMAL(3, 2),
     Weight DECIMAL(5, 2),
     RefCategory VARCHAR(50),
+    ImageURL VARCHAR(500),
+    PRIMARY KEY (ProductID, BrandID),
+    FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
+);
+
+
+CREATE TABLE ProductColors (
+    ProductID INT,
+    BrandID INT,
+    Color VARCHAR(50),
+    PRIMARY KEY (ProductID, BrandID, Color),
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
+);
+
+
+
+CREATE TABLE ClothingItem (
+    ProductID INT,
+    BrandID INT,
     AvailableSizes VARCHAR(100),
     Dimensions VARCHAR(100),
     WaistWidth DECIMAL(5, 2),
@@ -29,46 +48,30 @@ CREATE TABLE Product (
     ShoulderWidth DECIMAL(5, 2),
     SleeveLength DECIMAL(5, 2),
     TotalLength DECIMAL(5, 2),
-    Type VARCHAR(20),
-    PRIMARY KEY(ProductID, BrandID),
-    FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
+    PRIMARY KEY (ProductID, BrandID),
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
 
--- New table for ProductColors
-CREATE TABLE ProductColors (
-    ProductID INT,
-    Color VARCHAR(50),
-    PRIMARY KEY (ProductID, Color),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
-);
-
-CREATE TABLE ClothingItem (
-    ProductID INT PRIMARY KEY,
-    ClothType VARCHAR(50),
-    Type VARCHAR(20),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
-    CHECK (Type in ('clothing'))
-);
 
 CREATE TABLE AccessoryItem (
-    ProductID INT PRIMARY KEY,
-    AccessoryType VARCHAR(50),
-    Type VARCHAR(20),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
-    CHECK (Type in ('accessory'))
+    ProductID INT,
+    BrandID INT,
+    Type VARCHAR(50), -- e.g., jewelry, belt, bag
+    Material VARCHAR(100),
+    PRIMARY KEY (ProductID, BrandID),
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
+
 
 -- Remaining tables (unchanged)
 CREATE TABLE SustainabilityMetric (
     MetricID INT PRIMARY KEY,
     MetricType VARCHAR(100),
     Value DECIMAL(10, 2),
-    ProductID INT,
     BrandID INT,
     BrandUnit VARCHAR(50),
     ProductUnit VARCHAR(50),
     MeasurementData TEXT,
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
     FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
 );
 
@@ -83,14 +86,15 @@ CREATE TABLE Category (
 CREATE TABLE Inventory (
     InventoryID INT PRIMARY KEY,
     ProductID INT,
+	BrandID INT,
     Quantity INT,
     LastUpdated DATE,
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
 
 CREATE TABLE "User" (
-    UserID INT PRIMARY KEY,
-    Email VARCHAR(255) NOT NULL,
+    UserID INT IDENTITY(1,1) PRIMARY KEY,
+    Email VARCHAR(255) UNIQUE NOT NULL,
     TotalSpent DECIMAL(10, 2),
     Password VARCHAR(255) NOT NULL,
     RegistrationDate DATE,
@@ -136,11 +140,12 @@ CREATE TABLE Cart (
 CREATE TABLE CartItem (
     CartID INT,
     ProductID INT,
+	BrandID INT,
     Quantity INT,
     AddedAt DATETIME,
     PRIMARY KEY (CartID, ProductID),
     FOREIGN KEY (CartID) REFERENCES Cart(CartID),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
 
 CREATE TABLE Wishlist (
@@ -154,20 +159,22 @@ CREATE TABLE WishlistItem (
     WishlistItemID INT PRIMARY KEY,
     WishlistID INT,
     ProductID INT,
+	BrandID INT,
     AddedAt DATETIME,
     FOREIGN KEY (WishlistID) REFERENCES Wishlist(WishlistID),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
 
 CREATE TABLE Review (
     ReviewID INT PRIMARY KEY,
     UserID INT,
     ProductID INT,
+	BrandID INT,
     ReviewDate DATE,
     Rating DECIMAL(2, 1),
     Comment TEXT,
     FOREIGN KEY (UserID) REFERENCES "User"(UserID),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
 
 CREATE TABLE Outfit (
@@ -183,9 +190,10 @@ CREATE TABLE Outfit (
 CREATE TABLE OutfitItem (
     OutfitID INT,
     ProductID INT,
+	BrandID INT,
     PRIMARY KEY (OutfitID, ProductID),
     FOREIGN KEY (OutfitID) REFERENCES Outfit(OutfitID),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
 
 CREATE TABLE "Order" (
@@ -202,11 +210,12 @@ CREATE TABLE "Order" (
 CREATE TABLE OrderItem (
     OrderID INT,
     ProductID INT,
+    BrandID INT,
+    OrderItemID INT IDENTITY(1,1) PRIMARY KEY,
     Quantity INT,
     PriceAtPurchase DECIMAL(10, 2),
-    PRIMARY KEY (OrderID, ProductID),
     FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY (ProductID, BrandID) REFERENCES Product(ProductID, BrandID)
 );
 
 CREATE TABLE Payment (
@@ -223,14 +232,14 @@ CREATE TABLE Payment (
 
 CREATE TABLE "Return" (
     ReturnID INT PRIMARY KEY,
-    OrderID INT,
-    CompletionDate DATE,
+    OrderID INT NOT NULL,
+    OrderItemID INT NOT NULL,
     RequestDate DATE,
+    CompletionDate DATE,
     Status VARCHAR(50),
     Reason TEXT,
-    ProductID INT,
     FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
-    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+    FOREIGN KEY (OrderItemID) REFERENCES OrderItem(OrderItemID)
 );
 
 CREATE TABLE Shipment (
@@ -247,9 +256,7 @@ CREATE TABLE Shipment (
 CREATE TABLE LoyaltyProgram (
     LoyaltyID INT PRIMARY KEY,
     UserID INT,
-    OrderID INT,
     PointsEarned INT,
     DateEarned DATE,
     FOREIGN KEY (UserID) REFERENCES "User"(UserID),
-    FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID)
 );
