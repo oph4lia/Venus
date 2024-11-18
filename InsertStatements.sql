@@ -26,6 +26,22 @@ INSERT INTO Product (ProductID, BrandID, Name, Description, Price, Material, Sto
 (8756, 4, 'Recycled Pants', 'Recycled pair of levis jeans', 70.00, 'Denim', 10, '2024-05-10', '2024-05-28', 4.0, 1.0, 'Mens Clothing'),
 (2459, 7, 'Eco Hiking boots', 'Eco-friendly hiking boots', 120.00, 'Organic Rubber', 15, '2024-07-06', '2024-11-03', 4.0, 2.1, 'Footwear');
 
+
+-- INSERT Data into ProductColors
+INSERT INTO ProductColors (ProductID, BrandID, Color) VALUES
+(1345, 1, 'red, green, white'),
+(2672, 2, 'blue'),
+(3457, 3, 'grey, white, black'),
+(4130, 4, 'navy'),
+(5998, 5, 'black, white'),
+(6218, 6, 'orange, black'),
+(7193, 7, 'grey, red, black'),
+(8116, 8, 'pink, white'),
+(9053, 9, 'black, grey'),
+(1067, 10, 'green'),
+(8756, 4, 'black'),
+(2459, 7, 'beige');
+
 -- INSERT: ClothingItem table with clothing-specific measurements
 INSERT INTO ClothingItem (ProductID, BrandID, AvailableSizes, Dimensions, WaistWidth, ChestWidth, ShoulderWidth, SleeveLength, TotalLength) VALUES
 (1345, 1, 'S,M,L', '10x10x1', 30.0, 50.0, 40.0, 65.0, 70.0),
