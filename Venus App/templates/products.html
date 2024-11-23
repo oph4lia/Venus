@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - RedStore | Ecommerce Website Design</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+       <div class="container">
+          <div class="navbar">
+              <div class="logo">
+                  <a href="about.html"><img src="static\images\app-store.png" width="125px"></a>
+              </div>
+              <nav>
+               <ul id="MenuItems">
+                   <li><a href="about.html">Home</a></li>
+                   <li><a href="products.html">Products</a></li>
+                   <li><a href="account.html">Login/Signup</a></li>
+                   <li><a href="profile.html">Profile</a></li>
+               </ul>
+              </nav>
+              <a href="cart.html"><img src="static\images\cart.png" width="30px" height="30px"></a>
+              <img src="static\images\menu.png" onclick="menutoggle()" class="menu-icon">
+          </div>
+          
+       </div>
+<!----------------- title -------------->
+<div class="small-container">
+    <div class="row row-2">
+        <h2>All Products</h2>
+        <button onclick="openModal()" class="btn">Add Product</button>
+        <div class="controls">
+            <select id="sortDropdown">
+                <option value="default">Default Sorting</option>
+                <option value="price_asc">Sort by price (low to high)</option>
+                <option value="price_desc">Sort by price (high to low)</option>
+                <option value="rating">Sort by rating</option>
+            </select>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for products..." />
+                <button onclick="searchProducts()" class="btn">Search</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="products-container" class="row"></div>
+</div>
+    
+             
+   <div id="products-container" class="row"></div>
+   
+   <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Add Product</h2>
+            <form id="productForm">
+                <!-- Required fields -->
+                <label for="product_id">Product ID:</label>
+                <input type="number" id="product_id" name="product_id" required>
+
+                <label for="brand_id">Brand ID:</label>
+                <input type="number" id="brand_id" name="brand_id" required>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="image_url">ImageURL:</label>
+                <input type="text" id="image_url" name="image_url" required>
+
+                <button type="submit" class="btn">Save</button>
+            </form>
+        </div>
+    </div>
+
+
+           
+           <div class="page-btn">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>&#8594;</span>
+          </div>
+</div>
+    
+<!----------Footer---------------> 
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col1">
+               <h3>Download Our App</h3>
+                <p>Download App for Android and ios mobile phone.</p>
+                <div class="app-logo">
+                    <img src="static\images\app-store.png">
+                </div>
+            </div>
+            <div class="footer-col2">
+               <img src="static\images\logo-white.png">
+                <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+            </div>
+            <div class="footer-col3">
+               <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col4">
+               <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter<li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2020 - Easy Tutorials</p>
+    </div>
+    
+</div>
+
+
+
+<!-------------js for toggle menu-------------->
+
+<script>
+    
+    var MenuItems = document.getElementById("MenuItems");
+    
+    MenuItems.style.maxHeight = "0px";
+    
+    function menutoggle()
+    {
+        if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px";
+            }else
+            {
+                MenuItems.style.maxHeight = "0px"
+            } 
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+            // Fetch and display products
+            fetch("/api/products")
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((products) => {
+                    if (products.error) {
+                        console.error("Error fetching products:", products.error);
+                        return;
+                    }
+                    displayProducts(products);
+                })
+                .catch((error) => console.error("Error:", error));
+        });
+
+        function displayProducts(products) {
+            const container = document.getElementById("products-container");
+            container.innerHTML = ""; // Clear previous content
+
+            if (products.length === 0) {
+                container.innerHTML = "<p>No products found. Try a different search.</p>";
+                return;
+            }
+
+            products.forEach((product) => {
+                const productCard = document.createElement("div");
+                productCard.className = "col-4 product-card";
+                productCard.setAttribute("data-id", `${product.product_id}_${product.brand_id}`); // Add unique identifier
+
+                productCard.innerHTML = `
+                    <div class="product-card">
+                        <a href="product-details.html?product_id=${product.product_id}&brand_id=${product.brand_id}">
+                            <img src="${product.image_url}" alt="${product.name}" 
+                                onerror="this.src='/static/images/default.jpg';">
+                        </a>
+                        <h4>${product.name}</h4>
+                        <p>Price: $${product.price}</p>
+                        <p>Stock: ${product.stock_quantity}</p>
+                        <button onclick="editProduct(${product.product_id}, ${product.brand_id})" class="btn">Edit</button>
+                        <button onclick="deleteProduct(${product.product_id}, ${product.brand_id})" class="btn">Delete</button>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
+
+
+        // Function to open the modal for adding or editing a product
+        function openModal(isEdit = false, product = {}) {
+            const modal = document.getElementById("productModal");
+            const productForm = document.getElementById("productForm");
+            modal.style.display = "block";
+            if (isEdit) {
+                document.getElementById("modalTitle").innerText = "Edit Product";
+                productForm.product_id.value = product.product_id || "";
+                productForm.brand_id.value = product.brand_id || "";
+                productForm.name.value = product.name || "";
+                productForm.description.value = product.description || "";
+                productForm.Price.value = product.price || "";
+                productForm.material.value = product.material || "";
+                productForm.stock_quantity.value = product.stock_quantity || "";
+                productForm.category.value = product.category || "";
+                productForm.image_url.value = product.image_url || "";
+            } else {
+                document.getElementById("modalTitle").innerText = "Add Product";
+                productForm.reset();
+            }
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById("productModal");
+            modal.style.display = "none";
+        }
+
+        // Event listener for form submission
+        document.getElementById("productForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Extract form data
+            const product_id = parseInt(document.getElementById("product_id").value, 10);
+            const brand_id = parseInt(document.getElementById("brand_id").value, 10);
+            const name = document.getElementById("name").value;
+            const image_url = document.getElementById("image_url").value;
+
+            // Validate required fields
+            if (isNaN(product_id) || isNaN(brand_id) || !name || !image_url) {
+                alert("Please fill in all required fields with valid values.");
+                return;
+            }
+
+            // Prepare payload
+            const productData = { product_id, brand_id, name, image_url };
+
+            try {
+                // Send AJAX request
+                const response = await fetch("/api/products", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(productData),
+                });
+
+                const data = await response.json();
+
+                // Handle response
+                if (response.ok) {
+                    alert("Product added successfully.");
+                    closeModal();
+                    location.reload(); // Refresh the product list
+                } else {
+                    alert(data.error || "Failed to add product.");
+                }
+            } catch (error) {
+                console.error("Error saving product:", error);
+                alert("Error saving product: " + error.message);
+            }
+        });
+
+
+        // Function to fetch product data and open modal for editing
+        function editProduct(product_id, brand_id) {
+            fetch(`/api/products/${product_id}/${brand_id}`)
+                .then((response) => response.json())
+                .then((product) => openModal(true, product))
+                .catch((error) => console.error("Error fetching product:", error));
+        }
+
+        // Function to delete a product
+        function deleteProduct(product_id, brand_id) {
+            if (confirm("Are you sure you want to delete this product?")) {
+                fetch(`/api/products/${product_id}/${brand_id}`, { method: "DELETE" })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to delete product: ${response.statusText}`);
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            alert("Product deleted successfully.");
+
+                            // Find the product card by its data-id
+                            const productElement = document.querySelector(
+                                `.product-card[data-id='${product_id}_${brand_id}']`
+                            );
+
+                            // Apply fade-out effect before removing the element
+                            if (productElement) {
+                                productElement.style.transition = "opacity 0.5s";
+                                productElement.style.opacity = "0";
+                                setTimeout(() => productElement.remove(), 500); // Remove after fade-out
+                            }
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting product:", error);
+                        alert("Error deleting product. Please try again.");
+                    });
+            }
+        }
+
+
+        document.getElementById("searchBar").addEventListener("input", function () {
+            const query = this.value.trim();
+            if (query.length > 2) {  // Perform search only for queries longer than 2 characters
+                searchProducts(query);
+            }
+        });
+
+        function searchProducts() {
+            const query = document.getElementById("searchInput").value.trim();
+            if (query.length < 1) {
+                alert("Please enter a search term.");
+                return;
+            }
+            fetch(`/api/search?q=${encodeURIComponent(query)}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to search: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then((products) => {
+                    if (products.error) {
+                        console.error("Error:", products.error);
+                        alert("Error fetching search results.");
+                    } else {
+                        displayProducts(products);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error during search:", error);
+                    alert("An error occurred while searching.");
+                });
+        }
+
+
+
+        
+        // Function to handle sorting and update the product display
+        function sortProducts(sortBy) {
+            console.log(`Sorting by: ${sortBy}`); // Debugging log
+            const url = `/api/products?sort=${sortBy}&bust=${Date.now()}`;
+            fetch(url)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch sorted products: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then((products) => {
+                    if (products.error) {
+                        console.error("API Error:", products.error);
+                        alert("Error fetching sorted products. Please try again.");
+                    } else {
+                        displayProducts(products); // Render sorted products
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error during sorting:", error);
+                    alert("An error occurred while sorting products. Please try again.");
+                });
+        }
+
+
+        // Attach event listener to the sorting dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("sortDropdown").addEventListener("change", function () {
+                const sortBy = this.value; // Get the selected value from the dropdown
+                sortProducts(sortBy); // Trigger sorting based on the selected value
+            });
+        });
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
+
